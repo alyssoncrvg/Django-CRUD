@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Lista
+{% endblock %}
+
+{% block content %}
+<div>
+    <a href="{% url 'cadastro' %}" class="btn btn-sm btn-success">Adcionar Veículo</a>
+</div>
+<br>
+<div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Ano</th>
+            <th scope="col">Valor</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for Carro in list %}
+            <tr>
+                <td><img src="{{ MEDIA_URL }}{{ Carro.img }}"></td>
+                <td>{{ Carro.modelo }}</td>
+                <td>{{ Carro.marca }}</td>
+                <td>{{ Carro.ano }}</td>
+                <td>{{ Carro.valor }}</td>
+                <td>
+                    <a href="editar/{{ Carro.id }}">
+                        <i class="material-icons">mode_edit</i>
+                    </a>
+                </td>
+                <td>
+                    <a href="deletar/{{ Carro.id }}">
+                        <i class="material-icons">Delete</i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    {% endfor %}
+        
+    </table>
+    
+</div>
+
+{% endblock content %}

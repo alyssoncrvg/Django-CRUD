@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Editar Carro
+
+{% endblock %}
+
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Modelo</label>
+      <input type="text" name="modelo" value='{{ Carro.modelo }}' class="form-control" id="exampleFormControlInput1" placeholder="Modelo">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Marca</label>
+        <input type="text" name="marca" value="{{ Carro.marca }}" class="form-control" id="exampleFormControlInput1" placeholder="Marca">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Ano</label>
+        <input type="number" name="ano" value="{{ Carro.ano }}" class="form-control" id="exampleFormControlInput1" placeholder="2000">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Valor</label>
+        <input type="number" name="valor" value="{{ Carro.valor }}" class="form-control" id="exampleFormControlInput1" placeholder="xxxx.xx">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Imagem</label><br>
+        <input type="file" name="img" value="{{ Carro.img }}" class="btn btn-success"  accept="image/png, image/jpeg"  multiple /> 
+    </div>
+    <button type="submit" class='btn btn-primary'>
+        Salvar
+    </button>
+</form>
+
+{% endblock content %}
